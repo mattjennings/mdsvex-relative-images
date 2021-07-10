@@ -1,0 +1,17 @@
+{
+  "name": "mdsvex-relative-images",
+  "version": "1.0.0",
+  "description": "Add support for relative image URLs in mdsvex",
+  "main": "index.js",
+  "type": "module",
+  "author": "Matt Jennings",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mattjennings/mdsvex-relative-images"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "just-camel-case": "^4.0.2",
+    "unist-util-visit": "^3.1.0"
+  }
+}
