@@ -37,7 +37,7 @@ export default function relativeImages() {
     }
 
     // transform urls in images
-    visit(tree, "image", (node) => {
+    visit(tree, ["image", "definition"], (node) => {
       node.url = transformUrl(node.url);
     });
 
