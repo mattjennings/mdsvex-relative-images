@@ -1,6 +1,6 @@
 {
   "name": "mdsvex-relative-images",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Add support for relative image URLs in mdsvex",
   "main": "index.js",
   "type": "module",
