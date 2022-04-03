@@ -14,7 +14,9 @@ export default function relativeImages() {
 
     function transformUrl(url) {
       if (url.startsWith(".")) {
-        let camel = toCamel(url);
+        // filenames can start with digits,
+        // prepend underscore to guarantee valid module name
+        let camel = `_${toCamel(url)}`;
         const count = url_count.get(camel);
         const dupe = urls.get(url);
 
