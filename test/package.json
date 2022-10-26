@@ -1,15 +1,19 @@
 {
-	"name": "~TODO~",
-	"version": "0.0.1",
-	"scripts": {
-		"dev": "svelte-kit dev",
-		"build": "svelte-kit build",
-		"preview": "svelte-kit preview"
-	},
-	"devDependencies": {
-		"@sveltejs/kit": "next",
-		"svelte": "^3.34.0",
-		"mdsvex": "^0.9.7"
-	},
-	"type": "module"
+  "name": "test",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "dev": "vite dev",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "@sveltejs/adapter-auto": "next",
+    "@sveltejs/kit": "next",
+    "svelte": "^3.44.0",
+    "vite": "^3.1.0",
+    "mdsvex": "^0.10.6",
+    "mdsvex-relative-images": "file:../"
+  },
+  "type": "module"
 }
