@@ -13,6 +13,8 @@ export default function relativeImages() {
     const url_count = new Map();
 
     function transformUrl(url) {
+      url = decodeURIComponent(url)
+      
       if (url.startsWith(".")) {
         // filenames can start with digits,
         // prepend underscore to guarantee valid module name
