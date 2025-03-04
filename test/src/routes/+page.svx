@@ -1,0 +1,16 @@
+<script>
+    import Sample from './sample.svelte';
+</script>
+
+![abc](./img%20with%20space.png)
+<!-- reference links -->
+
+![img]
+
+[img]: ./img.png
+
+<Sample path='./img.png' />
+
+<Sample path  = "  ./img.png  " />
+
+
