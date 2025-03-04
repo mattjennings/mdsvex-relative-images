@@ -5,7 +5,7 @@ import toCamel from "just-camel-case";
 
 const RE_SCRIPT_START =
   /<script(?:\s+?[a-zA-z]+(=(?:["']){0,1}[a-zA-Z0-9]+(?:["']){0,1}){0,1})*\s*?>/;
-const RE_SRC = /src\s*=\s*"(.+?)"/;
+const RE_PROPS = /(\w+)\s*=\s*(["'])(.*?)\2/g;
 
 export default function relativeImages() {
   return function transformer(tree) {
@@ -13,9 +13,10 @@ export default function relativeImages() {
     const url_count = new Map();
 
     function transformUrl(url) {
+      url = url.trim();
       url = decodeURIComponent(url)
       
-      if (url.startsWith(".")) {
+      if (url.startsWith("./") || url.startsWith(".\\")) {
         // filenames can start with digits,
         // prepend underscore to guarantee valid module name
         let camel = `_${toCamel(url)}`;
@@ -47,16 +48,21 @@ export default function relativeImages() {
 
     // transform src in html nodes
     visit(tree, "html", (node) => {
-      // only run on img or video elements. this is a cheap way to check it,
-      // eventually we should integrate it into the RE_SRC regex.
-      const isSupportedElement = node.value && node.value.match(/img|video/);
+      let match;
+      const props = [];
 
-      if (isSupportedElement) {
-        const [, url] = node.value.match(RE_SRC) ?? [];
-        if (url) {
-          const transformed = transformUrl(url);
-          node.value = node.value.replace(`"${url}"`, transformed);
+      while ((match = RE_PROPS.exec(node.value)) !== null) {
+        if (match[1]) {
+          props.push(match[3]);
+        } else if (match[4]) {
+          props.push(match[5]);
         }
+      }
+
+      for (let i = 0; i < props.length; i++) {
+        let url = props[i];
+        const transformed = transformUrl(url);
+        node.value = node.value.replace(`${url}`, transformed);
       }
     });
 
