@@ -1,6 +1,6 @@
 # 🖼️ mdsvex-relative-images
 
-This plugin allows you to reference images, videos, and other assets using relative paths directly from your MDsveX files.
+This plugin allows you to reference images, videos, and other assets using relative paths and aliases directly from your MDsveX files.
 
 ## 🛠️ Install
 
@@ -47,18 +47,23 @@ mdsvex({
 ### Markdown Syntax
 
 ```md
-![my image](./my-image.png)
+![image](./my-image.png)
+![image](../images/another-folder-image.png)
+![image]($lib/images/lib-image.png)
 ```
 
 ### HTML Tags in Markdown
 
 ```md
 <img src="./my-image.png" />
-<video src="./my-video.mp4" />
+<img src="../images/another-folder-image.png" />
+<img src="$lib/images/lib-image.png" />
 ```
 
 ### Svelte Components
 
 ```md
 <SampleComponent path="./my-image.png" />
+<SampleComponent path="../images/another-folder-image.png" />
+<SampleComponent path="$lib/images/lib-image.png" />
 ```
