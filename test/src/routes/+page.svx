@@ -9,8 +9,13 @@
 
 [img]: ./img.png
 
-<Sample path='./img.png' />
+<Sample path='../images/img.png' test="./abc" />
+
+![test](../images/img.png)
+
 
 <Sample path  = "  ./img.png  " />
 
+![test]($lib/images/img.png)
 
+<Sample path  = ' $lib/images/img.png  ' />
