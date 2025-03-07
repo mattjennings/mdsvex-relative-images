@@ -5,6 +5,8 @@
 ![abc](./img%20with%20space.png)
 <!-- reference links -->
 
+<Sample path='../images/img.png?format=webp' test="./abc" />
+
 ![img]
 
 [img]: ./img.png
