@@ -50,6 +50,7 @@ mdsvex({
 ![image](./my-image.png)
 ![image](../images/another-folder-image.png)
 ![image]($lib/images/lib-image.png)
+![image](./my-image.png?format=webp)
 ```
 
 ### HTML Tags in Markdown
@@ -58,6 +59,7 @@ mdsvex({
 <img src="./my-image.png" />
 <img src="../images/another-folder-image.png" />
 <img src="$lib/images/lib-image.png" />
+<img src="./my-image.png?format=webp" />
 ```
 
 ### Svelte Components
@@ -66,4 +68,5 @@ mdsvex({
 <SampleComponent path="./my-image.png" />
 <SampleComponent path="../images/another-folder-image.png" />
 <SampleComponent path="$lib/images/lib-image.png" />
+<SampleComponent path="./my-image.png?format=webp" />
 ```
