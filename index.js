@@ -5,8 +5,8 @@ import toCamel from "just-camel-case";
 
 const RE_SCRIPT_START =
     /<script(?:\s+?[a-zA-z]+(=(?:["']){0,1}[a-zA-Z0-9]+(?:["']){0,1}){0,1})*\s*?>/;
-const RE_PROPS = /(\w+)\s*=\s*(["'])(\s*(\$\w+|\.{1,2})[\/\\].*?\.\w+\s*)\2/g;
-const RE_PATH = /\s*(\$\w+|\.{1,2})[\/\\].*?\.\w+\s*/;
+const RE_PROPS = /(\w+)\s*=\s*(["'])(\s*(\$\w+|\.{1,2})[\/\\].*?\.\w+\s*(\?([^=&]+=[^=&]+)(&[^=&]+=[^=&]+)*)?)\2/g;
+const RE_PATH = /\s*(\$\w+|\.{1,2})[\/\\].*?\.\w+\s*(\?([^=&]+=[^=&]+)(&[^=&]+=[^=&]+)*)?/;
 
 export default function relativeImages() {
     return function transformer(tree) {
